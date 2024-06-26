@@ -1,0 +1,39 @@
+# File create by Valdigleis (valdigleis@gmail.com)
+
+# Ignore vim file
+*.swp
+
+# Ignore file core LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+*.nav
+*.snm
+
+
+# Ignore Bibliography auxiliary files (bibtex/biblatex/biber)
+*.bbl
+*.bcl
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Ignore build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Ignore unix-like system files
+.DS_Store

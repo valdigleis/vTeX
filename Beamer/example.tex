@@ -1,0 +1,57 @@
+\documentclass[9pt]{beamer}
+
+% ---------------------------------------------------------------------------------------
+% Fundamental packages
+% ---------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% ---------------------------------------------------------------------------------------
+% Extra packages
+% ---------------------------------------------------------------------------------------
+\usepackage{metalogo}
+
+
+% ---------------------------------------------------------------------------------------
+% Define style used
+% ---------------------------------------------------------------------------------------
+\usepackage{styles/vtexmacros}
+\usefolder{styles}
+\usetheme[style=Kanagawa]{vtex} % Styles: Polar, Marceline, Monokai, Kanagawa (std) 
+
+% ---------------------------------------------------------------------------------------
+% Define informations
+% ---------------------------------------------------------------------------------------
+\title{vBeamer template}
+\subtitle{A beamer theme by Valdigleis}
+\author{Valdigleis S. Costa}
+\institute{UNIVASF, Salgueiro-PE}
+\date{\today}
+\titlegraphic{figs/algebra.png}
+
+% ---------------------------------------------------------------------------------------
+% Document code
+% ---------------------------------------------------------------------------------------
+\begin{document}
+  % Print title page
+  \titlepage
+
+  \begin{frame}
+    \frametitle{Roteiro}
+    \tableofcontents
+  \end{frame}
+
+  \section{Introdução}
+
+  \subsection{Apresentação}
+
+  \begin{frame}{vBeamer}{O que é?}
+    O vBeamer, criado por Valdigleis S. Costa, é um moderno template para a classe {\it beamer} do conjunto de macros {\LaTeX}. Este template faz parte do projeto {Valdi\TeX}, ou simplemsente {v\TeX}, disponível em:
+    \begin{center}
+      \url{https://gitlab.com/valdigleis/vTeX}
+    \end{center}
+  \end{frame}
+
+
+\end{document}

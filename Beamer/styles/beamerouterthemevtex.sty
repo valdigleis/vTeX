@@ -1,0 +1,131 @@
+% Copyright (c) 2023 by Valdigleis 
+% https://gitlab.com/valdigleis/vTeX/Beamer
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+\mode<presentation>
+
+% -----------------------------------------------------------------------------
+% Define the Head
+% -----------------------------------------------------------------------------
+\setbeamertemplate{frametitle}{
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.2cm,ht=0.6cm,dp=0.25cm]{header primary}%
+    \usebeamerfont{header title}\insertframetitle \
+    {\usebeamercolor*[fg]{header title}\usebeamerfont{header subtitle}\insertframesubtitle}
+    \hfill
+    \begin{beamercolorbox}[wd=0.15\paperwidth,ht=0.8cm,dp=0.25cm, center]{header secondary}%
+      \vspace*{-0.1cm}
+      \includegraphics[width=0.15\paperwidth, height=0.5cm, keepaspectratio]{\inserttitlegraphic}
+    \end{beamercolorbox}%
+  \end{beamercolorbox}%
+  \nointerlineskip
+  %
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{color(3pt)=(primaryLight!0); color(4pt)=(primaryLight)}
+  \begin{beamercolorbox}[wd=\paperwidth, center]{}%
+     \pgfuseshading{beamer@topshade}
+  \end{beamercolorbox}%
+}
+
+% -----------------------------------------------------------------------------
+% Define the footer
+% -----------------------------------------------------------------------------
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, center]{footer}%
+    \rule{0.95\paperwidth}{0.2pt}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=\textwidth, leftskip=0.3cm,rightskip=0.3cm, ht=0.3cm,dp=0.15cm]{footer text}%
+    \usebeamerfont{footnote}\copyright \ \insertauthor\hfill
+    % Uncomment to display navigation button
+	  %\insertslidenavigationsymbol%
+	  %\insertframenavigationsymbol%
+	  %\insertsubsectionnavigationsymbol%
+	  %\insertsectionnavigationsymbol%
+	  %\insertdocnavigationsymbol%
+	  %\insertbackfindforwardnavigationsymbol%
+	  \hfill\insertframenumber%
+  \end{beamercolorbox}%
+}
+
+% -----------------------------------------------------------------------------
+% Customize the footnotes
+% -----------------------------------------------------------------------------
+\hfuzz=\maxdimen % Remove the warning message about hbox overfull
+\renewcommand\footnoterule{\color{Gray!60}\hspace*{-0.5cm}\rule{0.9\paperwidth}{0.3pt}\vspace*{0.06cm}}
+\setbeamertemplate{footnote}{
+  \begin{beamercolorbox}[wd=\textwidth, leftskip=0.3cm,rightskip=0.3cm]{footer text}%
+    \usebeamerfont{footnote}\insertfootnotemark\insertfootnotetext
+  \end{beamercolorbox}%
+}
+
+% -----------------------------------------------------------------------------
+% Define Title Page
+% -----------------------------------------------------------------------------
+\def\titlepage{\usebeamertemplate{title page}}
+\def\logo@width{0.15\paperwidth}
+\def\logo@height{0.1\paperheight}
+\tikzset{
+  sider/.style={
+    draw=none,
+    rectangle,
+    outer xsep=-0.1mm,
+    minimum height=\paperheight,
+    minimum width=0.8cm,
+    fill=primaryLight
+  },
+  icon/.style={
+    draw=none,
+    fill=primaryLight!95,
+    minimum height=\logo@height,
+    minimum width=\logo@width,
+    text=background,
+    %rounded corners=\logo@height/2,
+    outer xsep=0.4cm,
+    outer ysep=0.4cm,
+    inner sep=0.3cm
+  }
+}
+
+\setbeamertemplate{title page}{
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \hspace*{-1pt}\node[anchor=west,sider] at (current page.west){};
+      \node[anchor=south west,sider, fill=primary, minimum height=0.3\paperheight] at (current page.south west){};
+      \node[align=center] at (current page.center){
+        \usebeamerfont{title}\color{primary}\inserttitle\\[0.5cm]
+        \usebeamerfont{subtitle}\color{Gray!85!black}\insertsubtitle\\[0.3cm]
+        \usebeamercolor[fg]{footer}\rule{0.8\paperwidth}{0.2pt}	\\[0.5cm]
+        \usebeamerfont{author}\color{secondary}\insertauthor\\[0.3cm]
+        \usebeamerfont{institute}\color{Gray}\insertinstitute\\[0.3cm]
+        \usebeamerfont{footer}\color{Gray}\today
+      };
+    \end{tikzpicture}
+  \end{frame}
+}
+
+% -----------------------------------------------------------------------------
+% Define TOC frame on new section
+% -----------------------------------------------------------------------------
+\AtBeginSection[]{
+  \setbeamertemplate{section in toc}{
+    \hspace*{0.5cm}\tikz[baseline=-0.5ex]\node[section number]{\usebeamerfont*{toc subtitle}\textbf{\inserttocsectionnumber}};
+    \ \ \ \tikz[baseline=-0.5ex]\node[section]{\normalsize \textbf{\inserttocsection}};\\[-0.3cm]
+    \hspace*{1.24cm}{\usebeamercolor*[fg]{footer} \rule{0.7\paperwidth}{0.1pt}\\\nointerlineskip}
+  }
+  \setbeamertemplate{subsection in toc}{
+    \hspace*{0.5cm}\tikz[baseline=-0.5ex]\node[subsection number, fill=secondary!95]{};
+    \hspace*{0.45cm} \tikz[baseline=-0.5ex]\node[subsection]{\normalsize\inserttocsubsection};\\[-0.2cm]
+  }
+}
+
+\mode<all>
