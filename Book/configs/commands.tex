@@ -1,0 +1,37 @@
+%---------------------------------------------------------------------------------------
+% Define variáveis globais
+%---------------------------------------------------------------------------------------
+\newcommand{\titulo}{}
+\newcommand{\subtitulo}{}
+\newcommand{\contador}{1}
+\newcommand{\instituicao}{}
+\newcommand{\departamento}{}
+\newcommand{\local}{}
+
+%---------------------------------------------------------------------------------------
+% Comando que define as variáveis
+%---------------------------------------------------------------------------------------
+\NewDocumentCommand{\myTitle}{m o}{%
+  \renewcommand{\titulo}{#1}%
+  \IfValueT{#2}{
+    \renewcommand{\subtitulo}{#2}
+    \renewcommand{\contador}{2}
+  }%
+}
+
+%---------------------------------------------------------------------------------------
+% Comando que imprime o titulo
+%---------------------------------------------------------------------------------------
+\newcommand{\printMyTitle}{
+  \ifthenelse{\equal{\contador}{2}}%
+    {\centering{\LARGE\titulo}\\\normalsize{\itshape\subtitulo}}%
+    {{\LARGE\titulo}}%
+  \vspace{0.3cm}\hrule
+}
+
+%---------------------------------------------------------------------------------------
+% Cria o comando para printar quando minutos se passaram desde a meia-noite
+%---------------------------------------------------------------------------------------
+\newcommand{\MinutesAfterMidnight}{%
+  \the\numexpr\currenthour*60+\currentminute\relax
+}
