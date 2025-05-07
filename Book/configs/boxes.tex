@@ -1,0 +1,113 @@
+%---------------------------------------------------------------------------------------
+%	Ambiente do Teorema
+%---------------------------------------------------------------------------------------
+\newlength{\spacelength}
+\settowidth{\spacelength}{\normalfont\ }
+\declaretheoremstyle[
+    headfont={\bfseries\sffamily\footnotesize},
+    notefont={\normalfont},
+    bodyfont={\normalfont},
+    headpunct={\relax},%\newline,
+    headformat={%
+        \makebox[0pt][r]{\NAME\ \NUMBER\hspace{\marginparsep}}\hskip-\spacelength{\normalsize\NOTE}},
+]{teorema}
+
+\tcolorboxenvironment{teorema}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!Dandelion},
+  enhanced jigsaw, 
+  borderline west={1pt}{0pt}{Dandelion},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+\declaretheorem[style=teorema]{teorema}
+
+%---------------------------------------------------------------------------------------
+%	Ambiente para demonstração
+%---------------------------------------------------------------------------------------
+\let\proof\relax
+\let\endproof\relax
+
+\declaretheoremstyle[
+    headfont={\sffamily\footnotesize},
+    notefont={\normalfont},
+    bodyfont={\normalfont},
+    headpunct={\relax},
+    headformat={%
+        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\normalsize\NOTE}},
+]{prova}
+
+\tcolorboxenvironment{prova}{
+  boxrule=0pt,
+  boxsep=0pt,
+  blanker,
+  borderline west={1pt}{0pt}{NavyBlue!80!white},
+  before skip=10pt,
+  after skip=10pt,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+\declaretheorem[
+    style=prova,
+    qed=\qedsymbol]{prova}
+
+%---------------------------------------------------------------------------------------
+%	Ambiente para Intuição
+%---------------------------------------------------------------------------------------
+\declaretheoremstyle[
+    headfont={\footnotesize\itshape},
+    notefont={\normalfont},
+    bodyfont={\normalfont},
+    headpunct={\relax},
+    headformat={%
+        \makebox[0pt][r]{\NAME\hspace{\marginparsep}}\hskip-\spacelength{\NOTE}},
+]{claim}
+
+\declaretheorem[style=claim]{Intuição}
+
+%---------------------------------------------------------------------------------------
+%	Ambiente para Lema
+%---------------------------------------------------------------------------------------
+\theoremstyle{teorema}
+\newtheorem{lema}{Lema}
+\tcolorboxenvironment{lema}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!tomato},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{tomato},
+  before skip=10pt,
+  after skip=10pt,
+  sharp corners,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
+
+%---------------------------------------------------------------------------------------
+%	Ambiente para Definição
+%---------------------------------------------------------------------------------------
+\theoremstyle{teorema}
+\newtheorem{definicao}{Definição}
+\tcolorboxenvironment{definicao}{
+  boxrule=0pt,
+  boxsep=0pt,
+  colback={White!90!Cerulean},
+  enhanced jigsaw,
+  borderline west={1pt}{0pt}{Cerulean},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  sharp corners,
+  left=5pt,
+  right=5pt,
+  breakable,
+}
