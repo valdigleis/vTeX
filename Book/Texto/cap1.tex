@@ -44,6 +44,10 @@ Praesent mattis, purus id mollis pellentesque, dui tellus dignissim ex, a fermen
   Nenhuma teoria de variáveis ocultas locais pode reproduzir todas as previsões da mecânica quântica\sidefootnote{Este teorema é nomeado como Teorema de Bell.}.
 \end{teorema}
 
+\begin{lema}
+  Uma linguagem $L \in REG$ se, e somente se, $L = \mathcal{M}$ para algum AFD $M$.
+\end{lema}
+
 \begin{prova}
   Fica como exercício ao leitor
 \end{prova}
@@ -52,6 +56,12 @@ Praesent mattis, purus id mollis pellentesque, dui tellus dignissim ex, a fermen
   Toda programa de computador é finito!
 \end{Intuição}
 
-\begin{lema}
-  Uma linguagem $L \in REG$ se, e somente se, $L = \mathcal{M}$ para algum AFD $M$.
-\end{lema}
+\begin{exemplo}
+  Um AFD é da forma $M = \langle \{A, B\}, \{0, 1\}, \delta, A, \{B\} \rangle$ com 
+  \begin{eqnarray*}
+    \delta(A, 0) & = & B\\
+    \delta(A, 1) & = & A\\
+    \delta(B, 0) & = & A\\
+    \delta(B, 1) & = & B\\
+  \end{eqnarray*}
+\end{exemplo}
