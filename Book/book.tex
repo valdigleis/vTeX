@@ -11,9 +11,10 @@
 \input{configs/color}
 \input{configs/commands}
 \input{configs/headfoot.tex}
-\input{configs/lists}
+%\input{configs/lists}
 \input{configs/settings}
 \input{configs/boxes}
+\input{configs/contents}
 
 
 % -------------------------------------------------------------------------
@@ -26,13 +27,20 @@
 % -------------------------------------------------------------------------
 \begin{document}
 
+\frontmatter
+
 % -------------------------------------------------------------------------
 % Pré-texto
 % -------------------------------------------------------------------------
 \input{preTexto/cover}
 \input{preTexto/copyright}
 
+% Índices de Conteúdos, Imagens e Tabelas
+\tableofcontents
 
+\mainmatter
+
+\part{Primeira Parte}
 \input{Texto/cap1.tex}
 
 \end{document}
